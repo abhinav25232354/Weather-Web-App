@@ -3,54 +3,58 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Weather App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Weather App</title>
 </head>
 
 <body>
-    <div class="weather-container">
-        <div class="weather-card">
-            <form class="search-bar" onsubmit="getWeather(event)">
-                <input type="text" id="cityInput" placeholder="Search location" autocomplete="off" required>
-                <button type="submit"><span class="material-icons">search</span></button>
-            </form>
-            <div class="weather-content">
-                <div class="weather-main">
-                    <div class="weather-image">
-                        <img id="main-icon" src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="Weather Icon">
-                    </div>
-                    <div class="weather-temp">
-                        <span id="temperature">25</span><span class="deg">°C</span>
-                    </div>
-                    <div class="weather-desc" id="description">Sunny</div>
-                    <div class="weather-date">
-                        <div class="day" id="day">Friday</div>
-                        <div class="date" id="date">28 July 2023</div>
-                        <div class="location" id="location"><span class="material-icons">location_on</span> Paris, FR</div>
+    <video id="bgVideo" autoplay muted loop playsinline>
+        <source src="videos/default.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+    <div class="weather-dashboard">
+        <form class="searchbar" onsubmit="getWeather(event)">
+            <input type="text" id="cityInput" placeholder="Search location">
+            <button type="submit">Search</button>
+        </form>
+        <div id="weatherCard" class="weather-card" style="display:none;">
+            <div class="weather-header">
+                <div class="weather-header-main">
+                    <img id="icon" src="" alt="" class="weather-icon">
+                    <div class="weather-temp-block">
+                        <span id="temp" class="weather-temp">--</span><span class="deg">&deg;C</span>
                     </div>
                 </div>
-                <div class="weather-side">
-                    <div class="weather-details">
-                        <div class="detail">
-                            <span class="label">PRECIPITATION</span>
-                            <span class="value" id="precipitation">4 mm</span>
-                        </div>
-                        <div class="detail">
-                            <span class="label">HUMIDITY</span>
-                            <span class="value" id="humidity">34 %</span>
-                        </div>
-                        <div class="detail">
-                            <span class="label">WIND</span>
-                            <span class="value" id="wind">6 km/h</span>
-                        </div>
-                    </div>
-                    <div class="weather-forecast" id="forecast">
-                        <!-- Forecast days will be injected here -->
+                <div class="weather-header-info">
+                    <h1 id="location">City, Country</h1>
+                    <h2 id="desc">Condition</h2>
+                    <div class="weather-header-meta">
+                        <span>Last Updated: <span id="updated">--</span></span>
+                        <span>Is Day: <span id="is_day">--</span></span>
+                        <span>Condition Code: <span id="cond_code">--</span></span>
                     </div>
                 </div>
+            </div>
+            <div class="weather-details-grid">
+                <div><span class="label">Feels like</span><span id="feelslike">--</span></div>
+                <div><span class="label">Feelslike (F)</span><span id="feelslike_f">--</span></div>
+                <div><span class="label">Temp (F)</span><span id="temp_f">--</span></div>
+                <div><span class="label">Humidity</span><span id="humidity">--</span></div>
+                <div><span class="label">Wind</span><span id="wind">--</span></div>
+                <div><span class="label">Wind Dir</span><span id="winddir">--</span></div>
+                <div><span class="label">Wind Degree</span><span id="winddegree">--</span></div>
+                <div><span class="label">Gust</span><span id="gust">--</span></div>
+                <div><span class="label">Pressure</span><span id="pressure">--</span></div>
+                <div><span class="label">Pressure (in)</span><span id="pressure_in">--</span></div>
+                <div><span class="label">Precipitation</span><span id="precip">--</span></div>
+                <div><span class="label">Precip (in)</span><span id="precip_in">--</span></div>
+                <div><span class="label">Dew Point</span><span id="dewpoint">--</span></div>
+                <div><span class="label">Cloud</span><span id="cloud">--</span></div>
+                <div><span class="label">UV Index</span><span id="uv">--</span></div>
+                <div><span class="label">Visibility</span><span id="vis">--</span></div>
+                <div><span class="label">Country</span><span id="country">--</span></div>
             </div>
         </div>
     </div>
